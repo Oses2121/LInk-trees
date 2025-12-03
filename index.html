@@ -3,54 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OSeS Ark - All Links</title>
+    <title>OSeS ARC - All Links</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Orbitron', monospace;
         }
 
         body {
-            font-family: 'Orbitron', monospace;
-            background: linear-gradient(135deg, #0a0e27 0%, #1a1a3e 100%);
-            color: #fff;
-            min-height: 100vh;
+            height: 100vh;
+            overflow: hidden;
+            background: #05010f;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
-            padding: 20px;
+            align-items: center;
             position: relative;
-            overflow-x: hidden;
+            color: white;
         }
 
-        /* Animated background */
-        body::before {
+        /* Background Image with Low Opacity */
+        body::after {
             content: '';
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background:
-                radial-gradient(circle at 20% 50%, rgba(138, 43, 226, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(0, 255, 255, 0.1) 0%, transparent 50%);
-            animation: pulse 8s ease-in-out infinite;
-            z-index: 0;
+            background-image: url('https://i.ibb.co/ZYqZYqZ/oses-arc-background.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.15;
+            z-index: -3;
         }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 0.8; }
+        /* Galaxy Canvas Background */
+        #galaxyCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            pointer-events: none;
         }
 
+        /* Solar System Container */
+        #solarSystem {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .sun {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, #ffaa00, #ff5500, #ff0000);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 100px #ff5500, 0 0 200px #ff0000;
+            animation: pulseSun 8s ease-in-out infinite;
+        }
+
+        @keyframes pulseSun {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.05); }
+        }
+
+        .planet-orbit {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .planet {
+            position: absolute;
+            border-radius: 50%;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .planet-1 {
+            width: 20px; height: 20px; background: #8888ff;
+            box-shadow: 0 0 15px #8888ff;
+        }
+        .planet-2 {
+            width: 30px; height: 30px; background: #ff8888;
+            box-shadow: 0 0 20px #ff8888;
+        }
+        .planet-3 {
+            width: 25px; height: 25px; background: #88ff88;
+            box-shadow: 0 0 25px #88ff88;
+        }
+        .planet-4 {
+            width: 35px; height: 35px; background: #ffff88;
+            box-shadow: 0 0 30px #ffff88;
+        }
+
+        /* Grid Lines */
+        .grid-lines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(0, 234, 255, 0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 234, 255, 0.08) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            opacity: 0.15;
+            animation: gridMove 40s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        /* Main Container */
         .container {
             position: relative;
-            z-index: 1;
+            z-index: 10;
             max-width: 500px;
-            width: 100%;
+            width: 90%;
+            padding: 20px;
         }
 
         /* Profile Section */
@@ -64,36 +155,55 @@
             width: 120px;
             height: 120px;
             margin: 0 auto 20px;
-            background: linear-gradient(135deg, #8a2be2, #00ffff);
+            background: linear-gradient(135deg, #7700ff, #00eaff, #ff00d4);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 3rem;
             font-weight: 900;
-            box-shadow: 0 0 30px rgba(138, 43, 226, 0.5);
-            animation: glow 2s ease-in-out infinite;
+            box-shadow: 0 0 40px rgba(119, 0, 255, 0.6), 0 0 80px rgba(0, 234, 255, 0.4);
+            animation: glow 3s ease-in-out infinite;
         }
 
         @keyframes glow {
-            0%, 100% { box-shadow: 0 0 30px rgba(138, 43, 226, 0.5); }
-            50% { box-shadow: 0 0 50px rgba(0, 255, 255, 0.8); }
+            0%, 100% {
+                box-shadow: 0 0 40px rgba(119, 0, 255, 0.6), 0 0 80px rgba(0, 234, 255, 0.4);
+                transform: scale(1);
+            }
+            50% {
+                box-shadow: 0 0 60px rgba(255, 0, 212, 0.8), 0 0 120px rgba(0, 234, 255, 0.6);
+                transform: scale(1.03);
+            }
         }
 
         .profile h1 {
-            font-size: 2rem;
-            background: linear-gradient(135deg, #8a2be2, #00ffff);
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            background: linear-gradient(135deg, #00eaff, #7700ff, #ff00d4);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: 10px;
-            font-weight: 900;
+            position: relative;
+            animation: glitchText 8s infinite;
+        }
+
+        @keyframes glitchText {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(-1px, 1px); }
+            40% { transform: translate(-1px, -1px); }
+            60% { transform: translate(1px, 1px); }
+            80% { transform: translate(1px, -1px); }
         }
 
         .profile p {
             color: rgba(255, 255, 255, 0.7);
             font-size: 0.9rem;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         /* Links Section */
@@ -107,19 +217,20 @@
             display: flex;
             align-items: center;
             padding: 18px 25px;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(138, 43, 226, 0.3);
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 15px;
             text-decoration: none;
             color: #fff;
             font-size: 1rem;
             font-weight: 600;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
             animation: fadeInUp 0.8s ease;
             animation-fill-mode: both;
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.1);
         }
 
         .link:nth-child(1) { animation-delay: 0.1s; }
@@ -129,7 +240,6 @@
         .link:nth-child(5) { animation-delay: 0.5s; }
         .link:nth-child(6) { animation-delay: 0.6s; }
         .link:nth-child(7) { animation-delay: 0.7s; }
-        .link:nth-child(8) { animation-delay: 0.8s; }
 
         .link::before {
             content: '';
@@ -138,8 +248,8 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(138, 43, 226, 0.3), transparent);
-            transition: left 0.5s ease;
+            background: linear-gradient(90deg, transparent, rgba(0, 234, 255, 0.3), transparent);
+            transition: left 0.6s ease;
         }
 
         .link:hover::before {
@@ -147,16 +257,16 @@
         }
 
         .link:hover {
-            background: rgba(138, 43, 226, 0.2);
-            border-color: #00ffff;
+            background: rgba(119, 0, 255, 0.2);
+            border-color: #00eaff;
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 234, 255, 0.4);
         }
 
         .link-icon {
             font-size: 1.5rem;
             margin-right: 15px;
-            filter: drop-shadow(0 0 5px rgba(0, 255, 255, 0.5));
+            filter: drop-shadow(0 0 5px rgba(0, 234, 255, 0.5));
         }
 
         .link-text {
@@ -182,6 +292,8 @@
             color: rgba(255, 255, 255, 0.4);
             font-size: 0.8rem;
             animation: fadeIn 1s ease 1s both;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         /* Animations */
@@ -215,7 +327,7 @@
         /* Responsive */
         @media (max-width: 600px) {
             .profile h1 {
-                font-size: 1.5rem;
+                font-size: 2rem;
             }
 
             .logo {
@@ -229,64 +341,102 @@
                 font-size: 0.9rem;
             }
         }
+
+        /* Scanlines Effect */
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.04;
+            background-image: repeating-linear-gradient(
+                to bottom,
+                transparent 0px,
+                transparent 2px,
+                rgba(255, 255, 255, 0.05) 3px
+            );
+            z-index: 1;
+        }
     </style>
 </head>
 <body>
+    <!-- Grid Lines -->
+    <div class="grid-lines"></div>
+
+    <!-- Scanlines -->
+    <div class="scanlines"></div>
+
+    <!-- Galaxy Canvas -->
+    <canvas id="galaxyCanvas"></canvas>
+
+    <!-- Solar System -->
+    <div id="solarSystem">
+        <div class="sun"></div>
+        <div class="planet-orbit" style="width: 200px; height: 200px; animation: orbit 20s linear infinite;">
+            <div class="planet planet-1"></div>
+        </div>
+        <div class="planet-orbit" style="width: 300px; height: 300px; animation: orbit 30s linear infinite;">
+            <div class="planet planet-2"></div>
+        </div>
+        <div class="planet-orbit" style="width: 400px; height: 400px; animation: orbit 40s linear infinite;">
+            <div class="planet planet-3"></div>
+        </div>
+        <div class="planet-orbit" style="width: 500px; height: 500px; animation: orbit 50s linear infinite;">
+            <div class="planet planet-4"></div>
+        </div>
+    </div>
+
     <div class="container">
         <!-- Profile Section -->
         <div class="profile">
             <div class="logo">⚡</div>
-            <h1>OSeS Ark</h1>
+            <h1>OSeS ARC</h1>
             <p>Autonomous Reality Core</p>
         </div>
 
         <!-- Links Section -->
         <div class="links">
-            <a href="https://instagram.com/YOUR_USERNAME" class="link" target="_blank">
-                <span class="link-icon">📸</span>
-                <span class="link-text">Instagram</span>
-                <span class="link-arrow">→</span>
-            </a>
-
-            <a href="https://youtube.com/@YOUR_CHANNEL" class="link" target="_blank">
-                <span class="link-icon">🎥</span>
-                <span class="link-text">YouTube</span>
-                <span class="link-arrow">→</span>
-            </a>
-
-            <a href="https://tiktok.com/@osesarc" class="link" target="_blank">
+            <a href="https://www.tiktok.com/@osesarc" class="link" target="_blank">
                 <span class="link-icon">🎵</span>
                 <span class="link-text">TikTok</span>
                 <span class="link-arrow">→</span>
             </a>
 
-            <a href="https://twitter.com/YOUR_USERNAME" class="link" target="_blank">
-                <span class="link-icon">🐦</span>
-                <span class="link-text">Twitter / X</span>
+            <a href="https://www.instagram.com/oses_arc/" class="link" target="_blank">
+                <span class="link-icon">📸</span>
+                <span class="link-text">Instagram</span>
                 <span class="link-arrow">→</span>
             </a>
 
-            <a href="https://YOUR_WEBSITE.com" class="link" target="_blank">
-                <span class="link-icon">🌐</span>
-                <span class="link-text">Website</span>
+            <a href="https://www.youtube.com/@OsesArc" class="link" target="_blank">
+                <span class="link-icon">🎥</span>
+                <span class="link-text">YouTube</span>
                 <span class="link-arrow">→</span>
             </a>
 
-            <a href="https://YOUR_TRADING_TERMINAL.com" class="link" target="_blank">
-                <span class="link-icon">📊</span>
-                <span class="link-text">Trading Terminal</span>
+            <a href="https://discord.gg/MNga3yH7" class="link" target="_blank">
+                <span class="link-icon">💬</span>
+                <span class="link-text">Discord</span>
                 <span class="link-arrow">→</span>
             </a>
 
-            <a href="https://YOUR_BRAINWAVE_APP.com" class="link" target="_blank">
-                <span class="link-icon">🧠</span>
-                <span class="link-text">Brainwave Visualizer</span>
+            <a href="https://t.me/+AeMIQekylxthYWI8" class="link" target="_blank">
+                <span class="link-icon">✈️</span>
+                <span class="link-text">Telegram</span>
                 <span class="link-arrow">→</span>
             </a>
 
-            <a href="mailto:YOUR_EMAIL@example.com" class="link">
-                <span class="link-icon">✉️</span>
-                <span class="link-text">Contact</span>
+            <a href="https://x.com/OSeS_ARC" class="link" target="_blank">
+                <span class="link-icon">✖️</span>
+                <span class="link-text">X / Twitter</span>
+                <span class="link-arrow">→</span>
+            </a>
+
+            <a href="https://kick.com/oses501" class="link" target="_blank">
+                <span class="link-icon">🎮</span>
+                <span class="link-text">Kick</span>
                 <span class="link-arrow">→</span>
             </a>
         </div>
@@ -296,5 +446,63 @@
             Powered by The ARC
         </div>
     </div>
+
+    <script>
+        // Galaxy Canvas Animation
+        const canvas = document.getElementById('galaxyCanvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const stars = [];
+        const starCount = 200;
+
+        for (let i = 0; i < starCount; i++) {
+            stars.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                radius: Math.random() * 1.5,
+                alpha: Math.random(),
+                speed: Math.random() * 0.5
+            });
+        }
+
+        function drawStars() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            stars.forEach(star => {
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`;
+                ctx.fill();
+
+                // Twinkle effect
+                star.alpha += star.speed * 0.01;
+                if (star.alpha > 1 || star.alpha < 0.2) {
+                    star.speed = -star.speed;
+                }
+            });
+
+            requestAnimationFrame(drawStars);
+        }
+
+        drawStars();
+
+        // Orbit animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes orbit {
+                from { transform: translate(-50%, -50%) rotate(0deg); }
+                to { transform: translate(-50%, -50%) rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Resize handler
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
 </body>
 </html>
