@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSeS Ark - All Links</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Orbitron', monospace;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1a3e 100%);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Animated background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(138, 43, 226, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 255, 255, 0.1) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.8; }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        /* Profile Section */
+        .profile {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #8a2be2, #00ffff);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: 900;
+            box-shadow: 0 0 30px rgba(138, 43, 226, 0.5);
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 30px rgba(138, 43, 226, 0.5); }
+            50% { box-shadow: 0 0 50px rgba(0, 255, 255, 0.8); }
+        }
+
+        .profile h1 {
+            font-size: 2rem;
+            background: linear-gradient(135deg, #8a2be2, #00ffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            font-weight: 900;
+        }
+
+        .profile p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        /* Links Section */
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .link {
+            display: flex;
+            align-items: center;
+            padding: 18px 25px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(138, 43, 226, 0.3);
+            border-radius: 15px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease;
+            animation-fill-mode: both;
+        }
+
+        .link:nth-child(1) { animation-delay: 0.1s; }
+        .link:nth-child(2) { animation-delay: 0.2s; }
+        .link:nth-child(3) { animation-delay: 0.3s; }
+        .link:nth-child(4) { animation-delay: 0.4s; }
+        .link:nth-child(5) { animation-delay: 0.5s; }
+        .link:nth-child(6) { animation-delay: 0.6s; }
+        .link:nth-child(7) { animation-delay: 0.7s; }
+        .link:nth-child(8) { animation-delay: 0.8s; }
+
+        .link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(138, 43, 226, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .link:hover::before {
+            left: 100%;
+        }
+
+        .link:hover {
+            background: rgba(138, 43, 226, 0.2);
+            border-color: #00ffff;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.4);
+        }
+
+        .link-icon {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            filter: drop-shadow(0 0 5px rgba(0, 255, 255, 0.5));
+        }
+
+        .link-text {
+            flex: 1;
+            text-align: left;
+        }
+
+        .link-arrow {
+            font-size: 1.2rem;
+            opacity: 0.5;
+            transition: all 0.3s ease;
+        }
+
+        .link:hover .link-arrow {
+            opacity: 1;
+            transform: translateX(5px);
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.8rem;
+            animation: fadeIn 1s ease 1s both;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .profile h1 {
+                font-size: 1.5rem;
+            }
+
+            .logo {
+                width: 100px;
+                height: 100px;
+                font-size: 2.5rem;
+            }
+
+            .link {
+                padding: 15px 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Profile Section -->
+        <div class="profile">
+            <div class="logo">⚡</div>
+            <h1>OSeS Ark</h1>
+            <p>Autonomous Reality Core</p>
+        </div>
+
+        <!-- Links Section -->
+        <div class="links">
+            <a href="https://instagram.com/YOUR_USERNAME" class="link" target="_blank">
+                <span class="link-icon">📸</span>
+                <span class="link-text">Instagram</span>
+                <span class="link-arrow">→</span>
+            </a>
+
+            <a href="https://youtube.com/@YOUR_CHANNEL" class="link" target="_blank">
+                <span class="link-icon">🎥</span>
+                <span class="link-text">YouTube</span>
+                <span class="link-arrow">→</span>
+            </a>
+
+            <a href="https://tiktok.com/@YOUR_USERNAME" class="link" target="_blank">
+                <span class="link-icon">🎵</span>
+                <span class="link-text">TikTok</span>
+                <span class="link-arrow">→</span>
+            </a>
+
+            <a href="https://twitter.com/YOUR_USERNAME" class="link" target="_blank">
+                <span class="link-icon">🐦</span>
+                <span class="link-text">Twitter / X</span>
+                <span class="link-arrow">→</span>
+            </a>
+
+            <a href="https://YOUR_WEBSITE.com" class="link" target="_blank">
+                <span class="link-icon">🌐</span>
+                <span class="link-text">Website</span>
+                <span class="link-arrow">→</span>
+            </a>
+
+            <a href="https://YOUR_TRADING_TERMINAL.com" class="link" target="_blank">
+                <span class="link-icon">📊</span>
+                <span class="link-text">Trading Terminal</span>
+                <span class="link-arrow">→</span>
+            </a>
+
+            <a href="https://YOUR_BRAINWAVE_APP.com" class="link" target="_blank">
+                <span class="link-icon">🧠</span>
+                <span class="link-text">Brainwave Visualizer</span>
+                <span class="link-arrow">→</span>
+            </a>
+
+            <a href="mailto:YOUR_EMAIL@example.com" class="link">
+                <span class="link-icon">✉️</span>
+                <span class="link-text">Contact</span>
+                <span class="link-arrow">→</span>
+            </a>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            Powered by The ARC
+        </div>
+    </div>
+</body>
+</html>
